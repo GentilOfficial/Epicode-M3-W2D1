@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playlist</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./custom.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Playlist</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+          aria-controls="navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#all">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#favourites">Favourites</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="text-center p-5">Playlist</h1>
+
+    <main class="container">
+      <h2 class="text-center p-2">All</h2>
+      <section id="all" class="row gap-3 justify-content-center"></section>
+      <h2 class="text-center p-2">Favourites</h2>
+      <section
+        id="favourites"
+        class="row gap-3 justify-content-center"
+      ></section>
+    </main>
+
+    <!-- Custom card Template for JS -->
+
+    <!-- <div class="custom-card">
+      <div class="custom-card-img">
+        <img src="https://picsum.photos/500/500?id=-1" alt="Lorem Picsum" />
+      </div>
+      <div class="title">
+        <h3>Praesentium soluta</h3>
+        <p>Rock</p>
+      </div>
+      <div class="details">
+        <p>dolor sit</p>
+        <p>3:59</p>
+      </div>
+    </div> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function cardNode(id, imgSrc, title, artist, gender, duration) {
+        const card = document.createElement("div")
+        card.classList.add("custom-card")
+
+        const imgWrapper = document.createElement("div")
+        imgWrapper.classList.add("custom-card-img")
+
+        const img = document.createElement("img")
+        img.src = imgSrc
+
+        const titleWrapper = document.createElement("div")
+        titleWrapper.classList.add("title")
+
+        const titleBox = document.createElement("h3")
+        titleBox.textContent = title
+
+        const genderBox = document.createElement("p")
+        genderBox.textContent = gender
+
+        const detailsWrapper = document.createElement("div")
+        detailsWrapper.classList.add("details")
+
+        const artistBox = document.createElement("p")
+        artistBox.textContent = artist
+
+        const durationBox = document.createElement("p")
+        durationBox.textContent = duration
+
+        imgWrapper.appendChild(img)
+        card.appendChild(imgWrapper)
+
+        titleWrapper.appendChild(titleBox)
+        titleWrapper.appendChild(genderBox)
+        card.appendChild(titleWrapper)
+
+        detailsWrapper.appendChild(artistBox)
+        detailsWrapper.appendChild(durationBox)
+        card.appendChild(detailsWrapper)
+
+        return card
+      }
+
+      function generateCards() {
+        const allAlbumsContainer = document.getElementById("all")
+        const favouritesAlbumsContainer = document.getElementById("favourites")
+
+        for (let i = 0; i < 30; i++) {
+          allAlbumsContainer.appendChild(
+            cardNode(
+              i,
+              `https://picsum.photos/500/500?id=${i}`,
+              "Title",
+              "Artist",
+              "Rock",
+              "3:59",
+            ),
+          )
+        }
+
+        for (let i = 30; i < 40; i++) {
+          favouritesAlbumsContainer.appendChild(
+            cardNode(
+              i,
+              `https://picsum.photos/500/500?id=${i}`,
+              "Title",
+              "Artist",
+              "Rock",
+              "3:59",
+            ),
+          )
+        }
+      }
+
+      window.addEventListener("load", () => {
+        generateCards()
+      })
+    </script>
+  </body>
+</html>
