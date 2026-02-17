@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="./custom.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Playlist</a>
+        <h1 class="navbar-brand">Playlist</h1>
         <button
           class="navbar-toggler"
           type="button"
@@ -28,44 +28,81 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#all">All</a>
-            </li>
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
             <li class="nav-item">
               <a class="nav-link" href="#favourites">Favourites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#the-best">The best</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <h1 class="text-center p-5">Playlist</h1>
-
-    <main class="container">
-      <h2 class="text-center p-2">All</h2>
-      <section id="all" class="row gap-3 justify-content-center"></section>
-      <h2 class="text-center p-2">Favourites</h2>
+    <main class="container p-3">
+      <h2 class="text-center p-2">Favourites Albums</h2>
       <section
         id="favourites"
-        class="row gap-3 justify-content-center"
+        class="row g-2 g-md-3 g-lg-5 justify-content-center"
+      ></section>
+      <h2 class="text-center mt-5 p-2">The best</h2>
+      <section
+        id="the-best"
+        class="row g-2 g-md-3 g-lg-5 justify-content-center"
       ></section>
     </main>
 
-    <!-- Custom card Template for JS -->
+    <!-- Custom card template for JS -->
 
     <!-- <div class="custom-card">
       <div class="custom-card-img">
         <img src="https://picsum.photos/500/500?id=-1" alt="Lorem Picsum" />
       </div>
       <div class="title">
-        <h3>Praesentium soluta</h3>
-        <p>Rock</p>
+        <h3>Title</h3>
+        <p>Genre</p>
       </div>
       <div class="details">
-        <p>dolor sit</p>
+        <p>Artist</p>
         <p>3:59</p>
       </div>
+    </div> -->
+
+    <!-- Custom landscape card with list-group template for JS -->
+
+    <!-- <div class="custom-landscape-card">
+      <div class="custom-card-img">
+        <img src="https://picsum.photos/500/500?id=-1" alt="Lorem Picsum" />
+      </div>
+      <div class="title">
+        <h3>Title</h3>
+        <p>Genre</p>
+      </div>
+      <div class="details">
+        <p>Artist</p>
+        <p>3:59</p>
+      </div>
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Track 1
+          <span>1:34</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Track 2
+          <span>2:15</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Track 3
+          <span>3:16</span>
+        </li>
+      </ul>
     </div> -->
 
     <script
@@ -73,83 +110,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script>
-      function cardNode(id, imgSrc, title, artist, gender, duration) {
-        const card = document.createElement("div")
-        card.classList.add("custom-card")
-
-        const imgWrapper = document.createElement("div")
-        imgWrapper.classList.add("custom-card-img")
-
-        const img = document.createElement("img")
-        img.src = imgSrc
-
-        const titleWrapper = document.createElement("div")
-        titleWrapper.classList.add("title")
-
-        const titleBox = document.createElement("h3")
-        titleBox.textContent = title
-
-        const genderBox = document.createElement("p")
-        genderBox.textContent = gender
-
-        const detailsWrapper = document.createElement("div")
-        detailsWrapper.classList.add("details")
-
-        const artistBox = document.createElement("p")
-        artistBox.textContent = artist
-
-        const durationBox = document.createElement("p")
-        durationBox.textContent = duration
-
-        imgWrapper.appendChild(img)
-        card.appendChild(imgWrapper)
-
-        titleWrapper.appendChild(titleBox)
-        titleWrapper.appendChild(genderBox)
-        card.appendChild(titleWrapper)
-
-        detailsWrapper.appendChild(artistBox)
-        detailsWrapper.appendChild(durationBox)
-        card.appendChild(detailsWrapper)
-
-        return card
-      }
-
-      function generateCards() {
-        const allAlbumsContainer = document.getElementById("all")
-        const favouritesAlbumsContainer = document.getElementById("favourites")
-
-        for (let i = 0; i < 30; i++) {
-          allAlbumsContainer.appendChild(
-            cardNode(
-              i,
-              `https://picsum.photos/500/500?id=${i}`,
-              "Title",
-              "Artist",
-              "Rock",
-              "3:59",
-            ),
-          )
-        }
-
-        for (let i = 30; i < 40; i++) {
-          favouritesAlbumsContainer.appendChild(
-            cardNode(
-              i,
-              `https://picsum.photos/500/500?id=${i}`,
-              "Title",
-              "Artist",
-              "Rock",
-              "3:59",
-            ),
-          )
-        }
-      }
-
-      window.addEventListener("load", () => {
-        generateCards()
-      })
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
